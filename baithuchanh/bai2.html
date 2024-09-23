@@ -21,9 +21,18 @@
     }
 
     let a = 6;
+    
     let b = kt(a);
-    console.log("Số:",a, " hoàn hảo:", b);
-    document.write("Số:"+a+ " hoàn hảo:"+ b)
+    if(b===true){
+        document.write("Số:"+a+ " hoàn hảo:"+ b);
+        console.log("Số:",a, " hoàn hảo:", b);
+    }
+    else {
+        document.write("Số:"+a+ "  không  hoàn hảo:"+ b);
+        console.log("Số:",a, "  không  hoàn hảo:", b);
+    }
+
+
 </script>
 </body>
 </html>
