@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function ktnam(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+    function songaythang2(month, year) {
+        if (month === 2) {
+            return ktnam(year) ? 29 : 28;
+        }
+        const day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        return day[month - 1];
+    }
+    function dinhrang(input) {
+        const dinhrang = /^(0[1-9]|1[0-2])\/\d{4}$/;
+        return dinhrang.test(input);
+    }
+    function tinh(input) {
+
+        if (!dinhrang(input)) {
+            return "Định dạng nhập không hợp lệ. Vui lòng nhập tháng/năm theo định dạng MM/yyyy.";
+        }
+
+        const [monthStr, yearStr] = input.split("/");
+        const month = parseInt(monthStr, 10);
+        const year = parseInt(yearStr, 10);
+        const days = songaythang2(month, year);
+        return `Tháng ${month}/${year} có ${days} ngày.`;
+    }
+    const a = "02/2028";
+    const b = tinh(a);
+    console.log(b);
+    document.write(b)
+</script>
+</body>
+</html>

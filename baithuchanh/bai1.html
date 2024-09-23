@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function ch3(a){
+        let t = 0;
+        let k = 0;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] % 3 === 0 && a.length<=50) {
+                t += a[i];
+                k++;
+            }
+        }
+        if (k > 0) {
+            return t / k;
+        } else {
+            return "Không có số chia hết cho 3 hoặc quá 50 phần tử";
+        }
+    }
+
+
+    const a = [4, 9, 15, 22, 33, 6];
+    a.push(5);
+    console.log(a);
+    const ht = ch3(a);
+    console.log("Trung bình cộng  chia hết cho 3 ", ht);
+    document.write("Trung bình cộng  chia hết cho 3 ", ht)
+
+
+</script>
+</body>
+</html>

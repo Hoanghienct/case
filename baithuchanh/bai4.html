@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+
+
+    table {
+        width: 500px;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+
+    .header {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+
+    .container {
+        text-align: center;
+    }
+</style>
+<body>
+<p style=" display: flex;justify-content: center;align-items: center;">Quản lý công nhân</p>
+<p  id="view" style=" display: flex;justify-content: center;align-items: center;"></p>
+<script>
+
+    class Congnhan {
+        stt;
+        name;
+        ngaysinh;
+        diachi;
+        luong;
+        chucvu
+        constructor(stt,name,ngaysinh,diachi,luong,chucvu) {
+            this.stt=stt;
+            this.name=name;
+            this.ngaysinh=ngaysinh;
+            this.diachi=diachi;
+            this.luong=luong;
+            this.chucvu=chucvu;
+        }
+    }
+
+    let congnhan = [];
+    congnhan.push(new Congnhan(1, "anh", "15/8/2000", "ha Nôi",'1000000','nv'))
+    congnhan.push(new Congnhan(2, "hien", "15/8/2000", "Cam khê",'100000','gd'))
+    congnhan.push(new Congnhan(3, "tung2", "15/8/2000", "Phú thọ",'100000','tk'))
+    congnhan.push(new Congnhan(3, "tung1", "15/8/2000", "Phú thọ",'100000','tk'))
+
+    function displayCongnhan() {
+         congnhan.sort(function (a,b) {
+            return a.name.localeCompare(b.name)
+         })
+        let temp = "<table style='width: 500px;' border='1'>";
+        temp += "<tr>"
+        temp += "<th>STT</th>"
+        temp += "<th>Họ và tên</th>"
+        temp += "<th>Ngày sinh</th>"
+        temp += "<th>Địa chỉ</th>"
+        temp += "<th>Lương</th>"
+        temp += "<th>Chức vụ</th>"
+        temp += "</tr>"
+        for(let i = 0 ; i <congnhan.length; i++) {
+            temp += "<tr>"
+            temp += `<td>${congnhan[i].stt}</td>`
+            temp += `<td>${congnhan[i].name}</td>`
+            temp += `<td>${congnhan[i].ngaysinh}</td>`
+            temp += `<td>${congnhan[i].diachi}</td>`
+            temp += `<td>${congnhan[i].luong}</td>`
+            temp += `<td>${congnhan[i].chucvu}</td>`
+
+            temp += "</tr>"
+        }
+        temp += "</table>"
+        document.getElementById("view").innerHTML = temp;
+    }
+
+
+    displayCongnhan();
+</script>
+</body>
+</html>
