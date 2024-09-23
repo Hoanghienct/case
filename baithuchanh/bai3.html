@@ -5,14 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tính số ngày trong tháng</title>
 </head>
-<body>
-<h1>Tính số ngày trong tháng</h1>
-<label for="month">Nhập tháng (1-12):</label>
-<input type="number" id="month" min="1" max="12">
-<label for="year">Nhập năm:</label>
-<input type="number" id="year">
-<button onclick="tinhSoNgay()">Tính</button>
-<p id="result"></p>
+<body style="background-color: #1BA39C">
+<div style=" display: flex;justify-content: center;align-items: center;">
+    <h1>Tính số ngày trong tháng </h1>
+
+</div>
+<div style=" display: flex;justify-content: center;align-items: center; " >
+    <table style="border: 1px solid black; background-color: #AAB69B" >
+        <tr>
+            <td>
+                <label for="month">Nhập tháng (1-12):</label>
+                <input type="number" id="month" min="1" max="12">
+                <label for="year">Nhập năm:</label>
+                <input type="number" id="year">
+                <button onclick="tinhSoNgay()">Tính</button>
+            </td>
+        </tr>
+
+        <p id="result"></p>
+    </table>
+
+</div>
+
 
 <script>
     function tinhSoNgay() {
