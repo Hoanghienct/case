@@ -38,8 +38,8 @@
         text-align: center;
     }
 </style>
-<body>
-<p style=" display: flex;justify-content: center;align-items: center;">Quản lý công nhân</p>
+<body style="background-color: antiquewhite">
+<h1 style=" display: flex;justify-content: center;align-items: center;">Quản lý công nhân</h1>
 <p  id="view" style=" display: flex;justify-content: center;align-items: center;"></p>
 <script>
 
@@ -61,10 +61,11 @@
     }
 
     let congnhan = [];
-    congnhan.push(new Congnhan(1, "anh", "15/8/2000", "ha Nôi",'1000000','nv'))
-    congnhan.push(new Congnhan(2, "hien", "15/8/2000", "Cam khê",'100000','gd'))
+    congnhan.push(new Congnhan(1, "anh", "15/8/2000", "ha Nôi",'100000','nv'))
+    congnhan.push(new Congnhan(2, "Hiển", "15/8/2000", "Cam khê",'100000','gd'))
     congnhan.push(new Congnhan(3, "tung2", "15/8/2000", "Phú thọ",'100000','tk'))
-    congnhan.push(new Congnhan(3, "tung1", "15/8/2000", "Phú thọ",'100000','tk'))
+    congnhan.push(new Congnhan(4, "tung1", "15/8/2000", "Phú thọ",'100000','tk'))
+    congnhan.push(new Congnhan(5, "bình", "15/8/2000", "Phú thọ",'100000','tk'))
 
     function displayCongnhan() {
          congnhan.sort(function (a,b) {
