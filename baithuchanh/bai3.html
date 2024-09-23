@@ -1,41 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính số ngày trong tháng</title>
 </head>
 <body>
+<h1>Tính số ngày trong tháng</h1>
+<label for="month">Nhập tháng (1-12):</label>
+<input type="number" id="month" min="1" max="12">
+<label for="year">Nhập năm:</label>
+<input type="number" id="year">
+<button onclick="tinhSoNgay()">Tính</button>
+<p id="result"></p>
+
 <script>
-    function ktnam(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
-    }
-    function songaythang2(month, year) {
-        if (month === 2) {
-            return ktnam(year) ? 29 : 28;
-        }
-        const day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        return day[month - 1];
-    }
-    function dinhrang(input) {
-        const dinhrang = /^(0[1-9]|1[0-2])\/\d{4}$/;
-        return dinhrang.test(input);
-    }
-    function tinh(input) {
+    function tinhSoNgay() {
+        let month = parseInt(document.getElementById("month").value);
+        let year = parseInt(document.getElementById("year").value);
 
-        if (!dinhrang(input)) {
-            return "Định dạng nhập không hợp lệ. Vui lòng nhập tháng/năm theo định dạng MM/yyyy.";
+        if (isNaN(month) || isNaN(year) || month < 1 || month > 12) {
+            alert("Vui lòng nhập tháng và năm hợp lệ.");
+            return;
         }
 
-        const [monthStr, yearStr] = input.split("/");
-        const month = parseInt(monthStr, 10);
-        const year = parseInt(yearStr, 10);
-        const days = songaythang2(month, year);
-        return `Tháng ${month}/${year} có ${days} ngày.`;
+
+        function isLeapYear(year) {
+            return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        }
+
+
+        let daysInMonth;
+        switch (month) {
+            case 2:
+                daysInMonth = isLeapYear(year) ? 29 : 28;
+                break;
+            case 4, 6, 9, 11:
+                daysInMonth = 30;
+                break;
+            default:
+                daysInMonth = 31;
+        }
+
+        document.getElementById("result").textContent = `Tháng ${month}/${year} có ${daysInMonth} ngày.`;
     }
-    const a = "02/2028";
-    const b = tinh(a);
-    console.log(b);
-    document.write(b)
+
+
+
+
+    
 </script>
 </body>
 </html>
